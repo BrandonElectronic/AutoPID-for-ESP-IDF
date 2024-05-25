@@ -1,5 +1,5 @@
-#ifndef AUTOPID_H
-#define AUTOPID_H
+#ifndef AUTOPID_FOR_ESP_IDF_H
+#define AUTOPID_FOR_ESP_IDF_H
 
 #include <cmath>
 #include <algorithm>
@@ -207,4 +207,4 @@ class AutoPIDRelay : public AutoPID {
     double _pulseValue;
 };//class AutoPIDRelay
 
-#endif // AUTOPID_H
+#endif // AUTOPID_FOR_ESP_IDF_H
