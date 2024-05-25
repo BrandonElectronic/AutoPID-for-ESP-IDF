@@ -18,8 +18,8 @@ jobs:
           - esp32s3
           - esp32c3
         examples:
+          - examples/basics
           - examples/temperature_control_relay
-          - examples/another_example
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
