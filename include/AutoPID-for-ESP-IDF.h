@@ -1,8 +1,9 @@
 #ifndef AUTOPID_H
 #define AUTOPID_H
 
+#include <cmath>
+#include <algorithm>
 #include "esp_timer.h"
-#include "esp_log.h"
 
 class AutoPID {
 
@@ -63,5 +64,4 @@ class AutoPIDRelay : public AutoPID {
     double _pulseValue;
 };//class AutoPIDRelay
 
-#endif
-
+#endif // AUTOPID_H
