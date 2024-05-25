@@ -1,0 +1,31 @@
+name: Build Component Examples
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        idf_ver: ["release-v5.0", "release-v5.1", "latest"]
+        idf_target:
+          - esp32
+          - esp32s3
+          - esp32c3
+        examples:
+          - examples/temperature_control_relay
+          - examples/another_example
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+    - name: Build example
+      uses: espressif/esp-idf-ci-action@v1
+      with:
+        esp_idf_version: ${{ matrix.idf_ver }}
+        target: ${{ matrix.idf_target }}
+        path: ${{ matrix.examples }}
