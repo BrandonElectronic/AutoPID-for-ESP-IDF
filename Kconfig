@@ -1,0 +1,68 @@
+menu "NTC Temperature"
+
+    config RESISTANCE_VOLTAGE_DIVIDER_OHM
+        int "Resistance of Voltage Divider in Ohm"
+        default 4700
+            help "This resistance can be adjusted to output different voltage"
+
+    config EXP_VOLTAGE
+        string "EXP32 Voltage"
+        default "3.3"
+            help "This voltage is the supply voltage of the single-chip microcomputer"
+
+    config BETA
+        int "" "Maximum of the output ADC raw digital reading result"
+        default 3950
+            help 
+                "This is 4095 under Single Read mode, 8191 under Continuous Read mode.
+                2 ^ 12 - 1 = 4095, 2 ^ 13 - 1 = 8191"
+    
+    config COEFFICIENT_A
+        string "HardwareA_coefficient"
+        default "0.0007207995816"
+            help 
+                "Coefficient A value for the Steinhart-Hart model of the NTC thermistor.
+                This coefficient affects the temperature calculation."
+    
+    config COEFFICIENT_B
+        string  "HardwareB_coefficient"
+        default "0.0002171490624"
+            help 
+                "Coefficient B value for the Steinhart-Hart model of the NTC thermistor.
+                This coefficient affects the temperature calculation."
+    
+    config COEFFICIENT_C
+        string "HardwareC_coefficient"
+        default "0.00000008956835924"
+            help 
+                " Coefficient C value for the Steinhart-Hart model of the NTC thermistor.
+                This coefficient affects the temperature calculation."
+    
+    config CONSTANT_SAMPLING
+        int "CONSTANT_SAMPLING"
+        default 5
+            help 
+                "CONSTANT_SAMPLING represents the number of a constant sample.
+                It plays a role in the NTC reading temperature."
+            
+    config SAMPLING_DELAY
+        int "Time delay"
+        default 300
+            help 
+                "Represents the delay time of the sample,can be used to set the delay time of a task."         
+
+    config SUPPORT_SIMULATION_TEMPERATURE_OFFSET
+        bool "Offset Access"
+        default n
+            help 
+                "123456 SIMULATION_TEMPERATURE_OFFSET"         
+
+    config SIMULATION_TEMPERATURE_OFFSET_VALUE
+        depends on SUPPORT_SIMULATION_TEMPERATURE_OFFSET
+        int "Offset temperature"
+        default 0
+            help 
+                "123456 SIMULATION_TEMPERATURE_OFFSET_VALUE"  
+            
+
+endmenu # NTC Temperature ADC
