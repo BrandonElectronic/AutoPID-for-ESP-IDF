@@ -1,4 +1,3 @@
-name: "AutoPID-for-ESP-IDF"
 description: "A PID controller library for ESP-IDF"
 maintainers:
   - "Hays Chan <blog@haysc.tech>"
